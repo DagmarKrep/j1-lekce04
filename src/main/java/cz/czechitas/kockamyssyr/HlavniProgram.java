@@ -43,6 +43,83 @@ public class HlavniProgram {
 
     public void chytMys() {
         // TODO: Sem vepište svůj program
+
+        int JX = jerry.getX();
+        int JY = jerry.getY();
+        int TX = tom.getX();
+        int TY = tom.getY();
+
+        int x = JX - TX;
+        int y = JY - TY;
+
+//        MYS JE NALEVO
+
+        if (x < 0 && tom.getOrientation() == PlayerOrientation.UP) {
+            //kočka se dívá nahoru
+            tom.turnLeft();
+            while ( x != 0) {
+                tom.moveForward();
+            }
+        }
+
+        if (x < 0 && tom.getOrientation() == PlayerOrientation.RIGHT) {
+            //kočka se dívá doprava
+            tom.turnLeft();
+            tom.turnLeft();
+            while ( x != 0) {
+                tom.moveForward();
+            }
+        }
+
+        if (x < 0 && tom.getOrientation() == PlayerOrientation.DOWN) {
+            //kočka se dívá dolu
+            tom.turnRight();
+            while ( x != 0) {
+                tom.moveForward();
+            }
+        }
+
+        if (x < 0 && tom.getOrientation() == PlayerOrientation.LEFT) {
+            //kočka se dívá doleva
+            while ( x != 0) {
+                tom.moveForward();
+            }
+        }
+
+//        MYS JE NAPRAVO
+
+        if (x > 0 && tom.getOrientation() == PlayerOrientation.UP) {
+            //kočka se dívá nahoru
+            tom.turnRight();
+            for (int i=0; i<=x; i++) {
+                tom.moveForward();
+            }
+        }
+
+        if (x > 0 && tom.getOrientation() == PlayerOrientation.RIGHT) {
+            //kočka se dívá doprava
+            for (int i=0; i<=x; i++) {
+                tom.moveForward();
+            }
+        }
+
+        if (x > 0 && tom.getOrientation() == PlayerOrientation.DOWN) {
+            //kočka se dívá dolu
+            tom.turnLeft();
+            for (int i=0; i<=x; i++) {
+                tom.moveForward();
+            }
+        }
+
+        if (x > 0 && tom.getOrientation() == PlayerOrientation.LEFT) {
+            //kočka se dívá doleva
+            tom.turnRight();
+            tom.turnRight();
+            for (int i=0; i<=x; i++) {
+                tom.moveForward();
+            }
+        }
+
     }
 
     public void vytvorVeci(int pocetStromu) {
